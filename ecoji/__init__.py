@@ -45,3 +45,4 @@ def encode(reader, writer):
             writer.write(EMOJIS[(data[3] & 0x03) << 8 | data[4]])
         read_bytes = reader.read(5)
         num_read = len(read_bytes)
+    writer.write('\n')

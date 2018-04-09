@@ -10,7 +10,7 @@ class TestEncode(unittest.TestCase):
         r = io.BytesIO(b'12345')
         w = io.StringIO()
         encode(r, w)
-        self.assertEqual('🎌🚟🎗🈸', w.getvalue())
+        self.assertEqual('🎌🚟🎗🈸\n', w.getvalue())
         r.close()
         w.close()
 
@@ -18,7 +18,7 @@ class TestEncode(unittest.TestCase):
         r = io.BytesIO(b'123456789')
         w = io.StringIO()
         encode(r, w)
-        self.assertEqual('🎌🚟🎗🈸🎥🤠📠🏍', w.getvalue())
+        self.assertEqual('🎌🚟🎗🈸🎥🤠📠🏍\n', w.getvalue())
         r.close()
         w.close()
 
@@ -26,7 +26,7 @@ class TestEncode(unittest.TestCase):
         r = io.BytesIO(b'12345678')
         w = io.StringIO()
         encode(r, w)
-        self.assertEqual('🎌🚟🎗🈸🎥🤠📒☕', w.getvalue())
+        self.assertEqual('🎌🚟🎗🈸🎥🤠📒☕\n', w.getvalue())
         r.close()
         w.close()
 
@@ -34,7 +34,7 @@ class TestEncode(unittest.TestCase):
         r = io.BytesIO(b'1234567')
         w = io.StringIO()
         encode(r, w)
-        self.assertEqual('🎌🚟🎗🈸🎥🤝☕☕', w.getvalue())
+        self.assertEqual('🎌🚟🎗🈸🎥🤝☕☕\n', w.getvalue())
         r.close()
         w.close()
 
@@ -42,6 +42,6 @@ class TestEncode(unittest.TestCase):
         r = io.BytesIO(b'123456')
         w = io.StringIO()
         encode(r, w)
-        self.assertEqual('🎌🚟🎗🈸🎥☕☕☕', w.getvalue())
+        self.assertEqual('🎌🚟🎗🈸🎥☕☕☕\n', w.getvalue())
         r.close()
         w.close()
