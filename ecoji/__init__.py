@@ -64,7 +64,8 @@ def encode(reader, writer, wrap=_DEFAULT_WRAP_COLS):
                 written_len = 0
         read_bytes = reader.read(5)
         num_read = len(read_bytes)
-    writer.write('\n')
+    if written_len:
+        writer.write('\n')
 
 
 def decode(reader, writer):
