@@ -75,22 +75,19 @@ def decode(reader, writer):
         char2 = _read_emoji(reader)
         char3 = _read_emoji(reader)
 
-        try:
-            bits0 = EMOJI2BYTE[char0]
-            bits1 = EMOJI2BYTE[char1]
-            bits2 = EMOJI2BYTE[char2]
-            if char3 == PADDING40:
-                bits3 = 0
-            if char3 == PADDING41:
-                bits3 = 1 << 8
-            if char3 == PADDING42:
-                bits3 = 2 << 8
-            if char3 == PADDING43:
-                bits3 = 3 << 8
-            else:
-                bits3 = EMOJI2BYTE[char3]
-        except KeyError:
-            raise DecodeError('Invalid emojis')
+        bits0 = EMOJI2BYTE.get(char0) or 0
+        bits1 = EMOJI2BYTE.get(char1) or 0
+        bits2 = EMOJI2BYTE.get(char2) or 0
+        if char3 == PADDING40:
+            bits3 = 0
+        if char3 == PADDING41:
+            bits3 = 1 << 8
+        if char3 == PADDING42:
+            bits3 = 2 << 8
+        if char3 == PADDING43:
+            bits3 = 3 << 8
+        else:
+            bits3 = EMOJI2BYTE.get(char3) or 0
         out = [0] * 5
         out[0] = bits0 >> 2
         out[1] = ((bits0 & 0x3) << 6) | (bits1 >> 4)
