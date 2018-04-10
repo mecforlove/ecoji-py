@@ -101,3 +101,7 @@ EMOJIS = [
     '\U0001f9c2', '\U0001f9d0', '\U0001f9d1', '\U0001f9d2', '\U0001f9d3',
     '\U0001f9d4', '\U0001f9d5'
 ]
+
+EMOJI2BYTE = {}
+for byte, emoji in enumerate(EMOJIS):
+    EMOJI2BYTE[emoji] = byte
