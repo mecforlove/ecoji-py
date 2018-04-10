@@ -45,3 +45,21 @@ class TestEncode(unittest.TestCase):
         self.assertEqual('🎌🚟🎗🈸🎥☕☕☕\n', w.getvalue())
         r.close()
         w.close()
+
+    def test_wrap_cols(self):
+        r = io.BytesIO(b'123456789123456')
+        w = io.StringIO()
+        encode(r, w, 6)
+        wanted_str = '🎌🚟🎗🈸🎥🤠📠🐂\n🎐🚯🏛🐇\n'
+        self.assertEqual(wanted_str, w.getvalue())
+        r.close()
+        w.close()
+
+    def test_negative_wrap_cols(self):
+        r = io.BytesIO(b'123456789123456')
+        w = io.StringIO()
+        encode(r, w, -1)
+        wanted_str = '🎌🚟🎗🈸🎥🤠📠🐂🎐🚯🏛🐇\n'
+        self.assertEqual(wanted_str, w.getvalue())
+        r.close()
+        w.close()

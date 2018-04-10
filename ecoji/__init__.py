@@ -1,10 +1,13 @@
 # coding: utf-8
 from .mapping import EMOJIS, PADDING, PADDING40, PADDING41, PADDING42, PADDING43
 
+_DEFAULT_WRAP_COLS = 76
 
-def encode(reader, writer):
+
+def encode(reader, writer, wrap=_DEFAULT_WRAP_COLS):
     read_bytes = reader.read(5)
     num_read = len(read_bytes)
+    written_len = 0
     while num_read:
         data = [0] * 5
         for index, byte in enumerate(read_bytes):
@@ -43,6 +46,11 @@ def encode(reader, writer):
             writer.write(EMOJIS[(data[1] & 0x3f) << 4 | data[2] >> 4])
             writer.write(EMOJIS[(data[2] & 0x0f) << 6 | data[3] >> 2])
             writer.write(EMOJIS[(data[3] & 0x03) << 8 | data[4]])
+        written_len += 4
+        if wrap > 0:
+            if written_len >= wrap:
+                writer.write('\n')
+                written_len = 0
         read_bytes = reader.read(5)
         num_read = len(read_bytes)
     writer.write('\n')
