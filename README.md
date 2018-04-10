@@ -8,7 +8,7 @@ The idea is from [here](https://github.com/keith-turner/ecoji). And this project
 - with pip
 
 ```bash
-$pip install ecoji
+$pip3 install ecoji
 ```
 
 - with source code
