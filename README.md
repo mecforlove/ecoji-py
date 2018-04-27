@@ -62,3 +62,5 @@ b'hello'
 ```
 
 Last but not the least, only Python3.x is supported.
+
+[emoji]: https://unicode.org/emoji/
