@@ -1,7 +1,6 @@
-# Ecoji 🏣🔉🦐🔼
+# Ecoji-py 🏣🔉🦐🔼🍽🚃🔓☕
 
-Ecoji encodes data as 1024 [emojis][emoji], its base1024 with an emoji character set.  As a bonus, includes code to decode emojis to original data.
-The idea is from [here](https://github.com/keith-turner/ecoji). And this project is the implemention of Python3.
+A Python3 implemention of [Ecoji](https://github.com/keith-turner/ecoji). Ecoji encodes data as 1024 [emojis][emoji], its base1024 with an emoji character set.  As a bonus, includes code to decode emojis to original data.
 
 ## Installing
 
@@ -33,7 +32,7 @@ $echo -n 👲🔩🚗🌷 | ecoji -d
 hello%
 ```
 
-If you want to know more about the CLI, just type `ecoji -h` in your terminal.
+Run `ecoji -h` to learn more about the CLI.
 
 ## For python lib
 
