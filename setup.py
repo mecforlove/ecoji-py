@@ -6,7 +6,7 @@ setup(
     name='ecoji',
     version=__version__,
     description='Encode and decode data as emojis.',
-    long_description=open("README.md").read(),
+    long_description=open("README.md", encoding="utf-8").read(),
     author='mecforlove',
     author_email='mecforlove@outlook.com',
     url='https://github.com/mecforlove/ecoji-py',
