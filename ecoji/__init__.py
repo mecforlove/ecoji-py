@@ -80,11 +80,11 @@ def decode(reader, writer):
         bits2 = EMOJI2BYTE.get(char2) or 0
         if char3 == PADDING40:
             bits3 = 0
-        if char3 == PADDING41:
+        elif char3 == PADDING41:
             bits3 = 1 << 8
-        if char3 == PADDING42:
+        elif char3 == PADDING42:
             bits3 = 2 << 8
-        if char3 == PADDING43:
+        elif char3 == PADDING43:
             bits3 = 3 << 8
         else:
             bits3 = EMOJI2BYTE.get(char3) or 0
